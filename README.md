@@ -56,13 +56,13 @@ Follow these instructions to get a copy of the project up and running on your lo
 - **Complete a Task**: Click the checkbox to mark a task as complete.
 - **Delete a Task**: Click the "Delete" icon to remove a task.
 
-//## 📷 Screenshots
+## 📷 Screenshots
 
-//![Add and View Tasks](path-to-add-view-tasks-screenshot.png)
-//*Adding and viewing tasks.*
+![Add and View Tasks](path-to-add-view-tasks-screenshot.png)
+*Adding and viewing tasks.*
 
-//![Edit and Delete Tasks](path-to-edit-delete-tasks-screenshot.png)
-//*Editing and deleting tasks.*
+![Edit and Delete Tasks](path-to-edit-delete-tasks-screenshot.png)
+*Editing and deleting tasks.*
 
 ## 🌐 Live Demo
 
