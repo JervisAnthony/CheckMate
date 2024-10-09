@@ -119,6 +119,44 @@ const deleteTask = (id) => {
 // Event Listeners
 addTaskBtn.addEventListener("click", addTask);
 
+// Select filter buttons
+const filterAllBtn = document.getElementById('filter-all');
+const filterActiveBtn = document.getElementById('filter-active');
+const filterCompletedBtn = document.getElementById('filter-completed');
+
+// Event Listeners for filter buttons
+filterAllBtn.addEventListener('click', () => {
+  currentFilter = 'all';
+  updateFilterButtons();
+  renderTasks();
+});
+
+filterActiveBtn.addEventListener('click', () => {
+  currentFilter = 'active';
+  updateFilterButtons();
+  renderTasks();
+});
+
+filterCompletedBtn.addEventListener('click', () => {
+  currentFilter = 'completed';
+  updateFilterButtons();
+  renderTasks();
+});
+
+// Function to update the active filter button's appearance
+const updateFilterButtons = () => {
+  document.querySelectorAll('.filter-btn').forEach((btn) => {
+    btn.classList.remove('active');
+  });
+  if (currentFilter === 'all') {
+    filterAllBtn.classList.add('active');
+  } else if (currentFilter === 'active') {
+    filterActiveBtn.classList.add('active');
+  } else if (currentFilter === 'completed') {
+    filterCompletedBtn.classList.add('active');
+  }
+};
+
 // Add task on "Enter" key press
 taskInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
