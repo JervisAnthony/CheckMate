@@ -11,8 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
   <!-- Link to CSS -->
   <link rel="stylesheet" href="styles.css" />
   <!-- Font Awesome for icons -->
@@ -28,6 +29,13 @@
   <main class="container">
     <header>
       <h1>CheckMate</h1>
+      <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" />
+        <label for="theme-switch" class="theme-switch-label">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </label>
+      </div>
     </header>
     <div class="input-section">
       <label for="task-input" class="visually-hidden">Task Description</label>
@@ -42,6 +50,10 @@
       <button id="filter-all" class="filter-btn active">All</button>
       <button id="filter-active" class="filter-btn">Active</button>
       <button id="filter-completed" class="filter-btn">Completed</button>
+    </div>
+    <!-- Delete All Tasks button -->
+    <div class="delete-all-section">
+      <button id="delete-all-btn">Delete All Tasks</button>
     </div>
     <ul id="task-list" aria-live="polite"></ul>
   </main>
