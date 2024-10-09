@@ -45,6 +45,28 @@ header h1 {
   background: #4cae4c;
 }
 
+/* Filter Section */
+.filter-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  margin: 0 5px;
+  background: #e7e7e7;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #5cb85c;
+  color: #ffffff;
+}
+
 /* Task List */
 #task-list {
   list-style: none;
