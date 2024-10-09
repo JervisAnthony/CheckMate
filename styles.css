@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -15,9 +15,17 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
+header {
+  background: linear-gradient(135deg, #5cb85c, #4cae4c);
+  padding: 20px 0;
+  color: #ffffff;
   text-align: center;
-  color: #333;
+  border-radius: 5px 5px 0 0;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 500;
 }
 
 /* Input Section */
@@ -32,6 +40,11 @@ header h1 {
   font-size: 16px;
 }
 
+#task-input:focus {
+  outline: none;
+  border: 2px solid #5cb85c;
+}
+
 #add-task-btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -39,10 +52,15 @@ header h1 {
   color: #ffffff;
   border: none;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 #add-task-btn:hover {
   background: #4cae4c;
+}
+
+#add-task-btn:active {
+  transform: scale(0.98);
 }
 
 /* Filter Section */
@@ -78,10 +96,31 @@ header h1 {
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #dddddd;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.3s forwards;
 }
 
 .task-item:last-child {
   border-bottom: none;
+}
+
+.task-item.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
 
 .task-item input[type="checkbox"] {
@@ -103,10 +142,21 @@ header h1 {
   cursor: pointer;
   margin-left: 5px;
   color: #888888;
+  font-size: 16px;
 }
 
 .task-item button:hover {
-  color: #333333;
+  color: #5cb85c;
+}
+
+/* Visually Hidden (for accessibility) */
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* Responsive Design */
@@ -117,5 +167,25 @@ header h1 {
 
   #add-task-btn {
     padding: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 10px;
+  }
+
+  #task-input {
+    font-size: 14px;
+  }
+
+  #add-task-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }
