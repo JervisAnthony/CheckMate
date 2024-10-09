@@ -1,5 +1,7 @@
 // app.js
 
+let currentFilter = 'all'; // 'all', 'active', or 'completed'
+
 // Selectors
 const taskInput = document.getElementById("task-input");
 const addTaskBtn = document.getElementById("add-task-btn");
