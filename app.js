@@ -1,5 +1,3 @@
-// app.js
-
 // Selectors
 const taskInput = document.getElementById('task-input');
 const addTaskBtn = document.getElementById('add-task-btn');
@@ -10,15 +8,32 @@ const filterAllBtn = document.getElementById('filter-all');
 const filterActiveBtn = document.getElementById('filter-active');
 const filterCompletedBtn = document.getElementById('filter-completed');
 
+// Delete All Tasks Button
+const deleteAllBtn = document.getElementById('delete-all-btn');
+
+// Theme Toggle
+const themeSwitch = document.getElementById('theme-switch');
+
 // Task Array
 let tasks = [];
 let currentFilter = 'all'; // 'all', 'active', or 'completed'
 
-// Load tasks from localStorage on page load
+// Load tasks and theme on page load
 window.onload = () => {
+  // Load tasks
   if (localStorage.getItem('tasks')) {
     tasks = JSON.parse(localStorage.getItem('tasks'));
     renderTasks();
+  }
+
+  // Load theme
+  const theme = localStorage.getItem('theme');
+  if (theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeSwitch.checked = true;
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    themeSwitch.checked = false;
   }
 };
 
@@ -137,6 +152,20 @@ const deleteTask = (id) => {
   }
 };
 
+// Delete All Tasks
+const deleteAllTasks = () => {
+  if (tasks.length === 0) {
+    alert('There are no tasks to delete.');
+    return;
+  }
+
+  if (confirm('Are you sure you want to delete all tasks?')) {
+    tasks = [];
+    saveTasks();
+    renderTasks();
+  }
+};
+
 // Update Filter Buttons
 const updateFilterButtons = () => {
   document.querySelectorAll('.filter-btn').forEach((btn) => {
@@ -168,6 +197,20 @@ filterCompletedBtn.addEventListener('click', () => {
   currentFilter = 'completed';
   updateFilterButtons();
   renderTasks();
+});
+
+// Event Listener for Delete All Tasks Button
+deleteAllBtn.addEventListener('click', deleteAllTasks);
+
+// Event Listener for Theme Toggle
+themeSwitch.addEventListener('change', () => {
+  if (themeSwitch.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }
 });
 
 // Event Listeners
