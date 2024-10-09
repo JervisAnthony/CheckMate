@@ -2,7 +2,7 @@
 
 **CheckMate** is a simple and intuitive To-Do List application designed to help you manage your tasks efficiently. With a clean interface and straightforward features, CheckMate makes it easy to keep track of your daily responsibilities.
 
-![CheckMate Screenshot](https://github.com/user-attachments/assets/2fb050ef-1bce-4ce8-864b-227d61b4d89f)
+![CheckMate Screenshot](https://github.com/user-attachments/assets/7989ed3e-8bd2-4a99-a332-9b776ba33a41)
 
 ## 🌟 Features
 
