@@ -243,6 +243,11 @@ header h1 {
   color: var(--primary-color);
 }
 
+/* Highlighted Task */
+.task-item.selected {
+  background-color: #e0f7fa;
+}
+
 /* Visually Hidden (for accessibility) */
 .visually-hidden {
   position: absolute;
