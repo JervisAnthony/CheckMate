@@ -136,7 +136,7 @@ const editTask = (id) => {
   }
 };
 
-// Delete Task
+// Delete Task (Individual Task Deletion)
 const deleteTask = (id) => {
   if (confirm('Are you sure you want to delete this task?')) {
     // Find the task element in the DOM
