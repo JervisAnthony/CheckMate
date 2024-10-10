@@ -98,7 +98,7 @@ const renderTasks = () => {
       taskText.classList.add('completed');
     }
 
-    // Edit button
+    // **Edit Button**
     const editBtn = document.createElement('button');
     editBtn.innerHTML = '<i class="fas fa-edit" aria-hidden="true"></i>';
     editBtn.setAttribute('aria-label', 'Edit task');
@@ -107,7 +107,7 @@ const renderTasks = () => {
       editTask(task.id);
     };
 
-    // Delete button
+    // **Delete Button**
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = '<i class="fas fa-trash" aria-hidden="true"></i>';
     deleteBtn.setAttribute('aria-label', 'Delete task');
@@ -116,11 +116,11 @@ const renderTasks = () => {
       deleteTask(task.id);
     };
 
-    // Append elements
+    // Append elements to the task item
     taskItem.appendChild(checkbox);
     taskItem.appendChild(taskText);
-    taskItem.appendChild(editBtn);
-    taskItem.appendChild(deleteBtn);
+    taskItem.appendChild(editBtn); // Append the Edit button
+    taskItem.appendChild(deleteBtn); // Append the Delete button
 
     // Click to select/highlight a task
     taskItem.onclick = (e) => {
@@ -151,7 +151,7 @@ const selectTask = (id) => {
   renderTasks();
 };
 
-// Edit Task
+// **Edit Task Function**
 const editTask = (id) => {
   const taskToEdit = tasks.find((task) => task.id === id);
   const newDescription = prompt('Edit the task description:', taskToEdit.description);
@@ -164,7 +164,7 @@ const editTask = (id) => {
   }
 };
 
-// Delete Individual Task
+// **Delete Individual Task Function**
 const deleteTask = (id) => {
   if (confirm('Are you sure you want to delete this task?')) {
     // Remove task from array
@@ -244,3 +244,4 @@ taskInput.addEventListener('keypress', (e) => {
     addTask();
   }
 });
+
