@@ -74,11 +74,14 @@ Follow these instructions to get a copy of the project up and running on your lo
 ---
 
 **Editing and deleting tasks.**
+
 **Editing tasks.**
+
 ![Edit and Delete Tasks](https://github.com/user-attachments/assets/4436db0c-6665-4426-abe0-b39d28166723)
 
 
 **Deleting tasks.**
+
 ![Edit and Delete Tasks](https://github.com/user-attachments/assets/e4caf269-a27b-45b0-83d6-295eb1639f06)
 
 
