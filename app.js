@@ -100,7 +100,7 @@ const renderTasks = () => {
 
     // **Edit Button**
     const editBtn = document.createElement('button');
-    editBtn.innerHTML = '<i class="fas fa-edit" aria-hidden="true"></i>';
+    editBtn.textContent = 'Edit';
     editBtn.setAttribute('aria-label', 'Edit task');
     editBtn.onclick = (e) => {
       e.stopPropagation(); // Prevent triggering task selection
@@ -109,7 +109,7 @@ const renderTasks = () => {
 
     // **Delete Button**
     const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = '<i class="fas fa-trash" aria-hidden="true"></i>';
+    deleteBtn.textContent = 'Delete';
     deleteBtn.setAttribute('aria-label', 'Delete task');
     deleteBtn.onclick = (e) => {
       e.stopPropagation(); // Prevent triggering task selection
@@ -244,4 +244,3 @@ taskInput.addEventListener('keypress', (e) => {
     addTask();
   }
 });
-
