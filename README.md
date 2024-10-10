@@ -66,7 +66,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ## 🌐 Live Demo
 
-Check out the live version of CheckMate [here](https://JervisAnthony.github.io/checkmate/).
+Check out the live version of CheckMate [here](https://jervisanthony.github.io/CheckMate/).
 
 ## 🤝 Contributing
 
