@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
   <title>CheckMate - To-Do List App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   />
-  <!-- Link to CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 </head>
 <body>
   <main class="container">
@@ -24,8 +25,8 @@
       <div class="theme-toggle">
         <input type="checkbox" id="theme-switch" />
         <label for="theme-switch" class="theme-switch-label">
-          <span class="sun">☀️</span>
-          <span class="moon">🌙</span>
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
         </label>
       </div>
     </header>
@@ -50,7 +51,7 @@
     <!-- Task List -->
     <ul id="task-list" aria-live="polite"></ul>
   </main>
-  <!-- Link to JS -->
+  <!-- JavaScript -->
   <script src="app.js"></script>
 </body>
 </html>
