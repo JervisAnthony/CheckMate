@@ -45,6 +45,7 @@ const addTask = () => {
       id: Date.now(),
       description,
       completed: false,
+      selected: false, // For highlighting
     };
     tasks.push(task);
     saveTasks();
@@ -78,6 +79,11 @@ const renderTasks = () => {
     taskItem.className = 'task-item';
     taskItem.setAttribute('data-id', task.id);
 
+    // Highlight selected task
+    if (task.selected) {
+      taskItem.classList.add('selected');
+    }
+
     // Checkbox
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -96,19 +102,33 @@ const renderTasks = () => {
     const editBtn = document.createElement('button');
     editBtn.innerHTML = '<i class="fas fa-edit" aria-hidden="true"></i>';
     editBtn.setAttribute('aria-label', 'Edit task');
-    editBtn.onclick = () => editTask(task.id);
+    editBtn.onclick = (e) => {
+      e.stopPropagation(); // Prevent triggering task selection
+      editTask(task.id);
+    };
 
     // Delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = '<i class="fas fa-trash" aria-hidden="true"></i>';
     deleteBtn.setAttribute('aria-label', 'Delete task');
-    deleteBtn.onclick = () => deleteTask(task.id);
+    deleteBtn.onclick = (e) => {
+      e.stopPropagation(); // Prevent triggering task selection
+      deleteTask(task.id);
+    };
 
     // Append elements
     taskItem.appendChild(checkbox);
     taskItem.appendChild(taskText);
     taskItem.appendChild(editBtn);
     taskItem.appendChild(deleteBtn);
+
+    // Click to select/highlight a task
+    taskItem.onclick = (e) => {
+      // Avoid toggling selection when clicking on buttons or checkbox
+      if (e.target === taskItem || e.target === taskText) {
+        selectTask(task.id);
+      }
+    };
 
     taskList.appendChild(taskItem);
   });
@@ -123,11 +143,19 @@ const toggleTask = (id) => {
   renderTasks();
 };
 
+// Select Task (for highlighting)
+const selectTask = (id) => {
+  tasks = tasks.map((task) =>
+    task.id === id ? { ...task, selected: !task.selected } : { ...task, selected: false }
+  );
+  renderTasks();
+};
+
 // Edit Task
 const editTask = (id) => {
   const taskToEdit = tasks.find((task) => task.id === id);
   const newDescription = prompt('Edit the task description:', taskToEdit.description);
-  if (newDescription !== null) {
+  if (newDescription !== null && newDescription.trim() !== '') {
     tasks = tasks.map((task) =>
       task.id === id ? { ...task, description: newDescription.trim() } : task
     );
@@ -136,19 +164,13 @@ const editTask = (id) => {
   }
 };
 
-// Delete Task (Individual Task Deletion)
+// Delete Individual Task
 const deleteTask = (id) => {
   if (confirm('Are you sure you want to delete this task?')) {
-    // Find the task element in the DOM
-    const taskItem = document.querySelector(`[data-id="${id}"]`);
-    // Add fade-out class
-    taskItem.classList.add('fade-out');
-    // After animation ends, remove the task
-    setTimeout(() => {
-      tasks = tasks.filter((task) => task.id !== id);
-      saveTasks();
-      renderTasks();
-    }, 300);
+    // Remove task from array
+    tasks = tasks.filter((task) => task.id !== id);
+    saveTasks();
+    renderTasks();
   }
 };
 
