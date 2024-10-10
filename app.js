@@ -98,18 +98,18 @@ const renderTasks = () => {
       taskText.classList.add('completed');
     }
 
-    // **Edit Button**
+    // Edit button
     const editBtn = document.createElement('button');
-    editBtn.textContent = 'Edit';
+    editBtn.innerHTML = '<i class="fas fa-edit"></i>';
     editBtn.setAttribute('aria-label', 'Edit task');
     editBtn.onclick = (e) => {
       e.stopPropagation(); // Prevent triggering task selection
       editTask(task.id);
     };
 
-    // **Delete Button**
+    // Delete button
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Delete';
+    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
     deleteBtn.setAttribute('aria-label', 'Delete task');
     deleteBtn.onclick = (e) => {
       e.stopPropagation(); // Prevent triggering task selection
@@ -119,8 +119,8 @@ const renderTasks = () => {
     // Append elements to the task item
     taskItem.appendChild(checkbox);
     taskItem.appendChild(taskText);
-    taskItem.appendChild(editBtn); // Append the Edit button
-    taskItem.appendChild(deleteBtn); // Append the Delete button
+    taskItem.appendChild(editBtn);
+    taskItem.appendChild(deleteBtn);
 
     // Click to select/highlight a task
     taskItem.onclick = (e) => {
@@ -151,7 +151,7 @@ const selectTask = (id) => {
   renderTasks();
 };
 
-// **Edit Task Function**
+// Edit Task
 const editTask = (id) => {
   const taskToEdit = tasks.find((task) => task.id === id);
   const newDescription = prompt('Edit the task description:', taskToEdit.description);
@@ -164,7 +164,7 @@ const editTask = (id) => {
   }
 };
 
-// **Delete Individual Task Function**
+// Delete Individual Task
 const deleteTask = (id) => {
   if (confirm('Are you sure you want to delete this task?')) {
     // Remove task from array
