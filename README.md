@@ -66,11 +66,15 @@ Follow these instructions to get a copy of the project up and running on your lo
 - **Delete a Task**: Click the "Delete" icon to remove a task.
 
 ## 📷 Screenshots
+
 **Adding and viewing tasks.**
+
 ![Add and View Tasks](https://github.com/user-attachments/assets/064a02cf-1b54-4e8b-aba6-23829a4a320d)
 
 
+
 **Editing and deleting tasks.**
+
 ![Edit and Delete Tasks](https://github.com/user-attachments/assets/4436db0c-6665-4426-abe0-b39d28166723)
 ![Edit and Delete Tasks](https://github.com/user-attachments/assets/e4caf269-a27b-45b0-83d6-295eb1639f06)
 
